@@ -3,13 +3,17 @@ import MyContext from './my_context'
 import { useState } from 'react';
 
 function App () {
-
   const [presupuesto, setPresupuesto] = useState( 0 )
-  const presupuestoState = { presupuesto, setPresupuesto }
+  const [presupuestoValido, setPresupuestoValido] = useState( false )
 
   return (
     <div>
-      <MyContext.Provider value={ presupuestoState }>
+      <MyContext.Provider value={ {
+        presupuesto,
+        setPresupuesto,
+        presupuestoValido,
+        setPresupuestoValido
+      } }>
         <Header />
       </MyContext.Provider>
     </div>
