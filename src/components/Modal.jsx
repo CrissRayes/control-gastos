@@ -1,6 +1,11 @@
+import { useState } from 'react'
 import cerrarIcon from '../assets/img/cerrar.svg'
 
 const Modal = ({ setModal, animarModal, setAnimarModal }) => {
+  const [nombre, setNombre] = useState('')
+  const [cantidad, setCantidad] = useState('')
+  const [categoria, setCategoria] = useState('')
+
   const cerrarModal = () => {
     setAnimarModal(false)
     setTimeout(() => {
@@ -25,6 +30,8 @@ const Modal = ({ setModal, animarModal, setAnimarModal }) => {
             id='nombre'
             type='text'
             placeholder='Nombre del gasto'
+            value={nombre}
+            onChange={e => setNombre(e.target.value)}
           />
         </div>
         <div className='campo'>
@@ -33,13 +40,20 @@ const Modal = ({ setModal, animarModal, setAnimarModal }) => {
             id='cantidad'
             type='text'
             placeholder='Ingresa la cantidad. Ej: 1000'
+            value={cantidad}
+            onChange={e => setCantidad(Number(e.target.value))}
           />
         </div>
         <div className='campo'>
           <label htmlFor='cantidad'>Categoría</label>
-          <select id='categoria'>
+          <select
+            id='categoria'
+            value={categoria}
+            onChange={e => setCategoria(e.target.value)}
+          >
             <option value=''>--Seleccione--</option>
             <option value='vivienda'>Vivienda</option>
+            <option value='alimentacion'>Alimentación</option>
             <option value='salud'>Salud</option>
             <option value='entretencion'>Entretención</option>
             <option value='otros'>Otros</option>
