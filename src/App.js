@@ -1,4 +1,6 @@
 import Header from './components/Header'
+import nuevoGastoIcon from './assets/img/nuevo-gasto.svg'
+
 import MyContext from './my_context'
 import { useState } from 'react';
 
@@ -15,6 +17,14 @@ function App () {
         setPresupuestoValido
       } }>
         <Header />
+        { presupuestoValido && (
+          <div className='nuevo-gasto'>
+            <img
+              src={ nuevoGastoIcon }
+              alt='Nuevo gasto'
+            />
+          </div>
+        ) }
       </MyContext.Provider>
     </div>
   );
