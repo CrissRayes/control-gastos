@@ -32,7 +32,7 @@ function App () {
   }
 
   return (
-    <div className={ modal ? 'fijar' : '' }>
+    <div className={ modal && 'fijar' }>
       <MyContext.Provider value={ {
         presupuesto,
         setPresupuesto,
